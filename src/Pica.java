@@ -19,6 +19,6 @@ public class Pica {
 		this.frame.setVisible(true);
 	}
 	public String nolasitAtributus() {
-		return merce+"Siera pica no novicka";
+		return merce+" pica no novickas";
 	}
 }

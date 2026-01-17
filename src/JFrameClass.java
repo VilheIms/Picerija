@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 public class JFrameClass extends JFrame {
 
 	private static final long serialVersionUID = -7754388046793851758L;
-	private JButton button, button2;
+	private JButton button, button2, button3;
 	Pica pica = null;
 	JFrameClass(){
 		start();
@@ -53,6 +53,9 @@ public class JFrameClass extends JFrame {
 		
 		button2 = createButton2();
 		panel.add(button2);
+		
+		button3 = createButton3();
+		panel.add(button3);
 		
 		add(panel, BorderLayout.CENTER);
 		
@@ -101,4 +104,21 @@ private JButton createButton2() {
 		
 		return button;
 	}
+private JButton createButton3() {
+	
+	JButton button3 = new JButton("ApskatĪt");
+	button3.setFocusable(false);
+	button3.setToolTipText("Beigt programmu pirms tā vispār sākās.");
+	
+	button3.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			PasutijumaInfo.nolasit();
+		}
+		
+	});
+	
+	
+	return button3;
+}
 }
