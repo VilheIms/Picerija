@@ -1,25 +1,20 @@
+import javax.swing.JFrame;
 
-public class Pica extends Picerija {
-	double lielums, cena;
-	String piedevas, merce;
-	int daudzums;
-	boolean piegade;
+public class Pica {
+
+	private JFrame frame;
 	
-	
-	
-	Pica(double lielums, String piedevas, String merce, boolean piegade, int daudzums, double cena){
-		
-		this.lielums = lielums;
-		this.piedevas = piedevas;
-		this.piedevas = piedevas;
-		this.piegade = piegade;
-		this.daudzums = daudzums;
-		this.cena = cena;
-		
-		
+	Pica(){
+		start();
 	}
 	
 	public void start() {
-		
+		frame = new JFrame();
+		this.frame.setTitle("Pica");
+		this.frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.frame.setSize(500, 400);
+		this.frame.setLocationRelativeTo(null);
+		this.frame.setResizable(false);
+		this.frame.setVisible(true);
 	}
 }
