@@ -3,9 +3,10 @@ import javax.swing.JFrame;
 public class Pica {
 
 	private JFrame frame;
+	String merce;
 	
-	Pica(){
-		start();
+	public Pica(String merce){
+		this.merce = merce;
 	}
 	
 	public void start() {
@@ -16,5 +17,8 @@ public class Pica {
 		this.frame.setLocationRelativeTo(null);
 		this.frame.setResizable(false);
 		this.frame.setVisible(true);
+	}
+	public String nolasitAtributus() {
+		return merce+"Siera pica no novicka";
 	}
 }

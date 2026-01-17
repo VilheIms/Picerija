@@ -21,7 +21,6 @@ public class Picerija {
 	public static void main(String[] args) {
 		
 		String izvele;
-		Pica pica = null;
 		
 		String[] darbibas = {"Ievadīt picas", "Ievadīt pasūtītāju informāciju", "Saglabāt failā", "Apskatīt failu", "Apturēt"};
 		
