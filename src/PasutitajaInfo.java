@@ -1,23 +1,15 @@
 
 public class PasutitajaInfo {
-	private String merce;
-	private String piedevas;
-	private String dzeriens;
-	private double lielums;
-	private int daudzums;
-	private double cena;
-	private int piegade;
-
-	PasutitajaInfo(String merce, String piedevas, String dzeriens, double lielums, int daudzums, int piegade, double cena){
-		this.merce = merce;
-		this.piedevas = piedevas;
-		this.dzeriens = dzeriens;
-		this.lielums = lielums;
-		this.daudzums = daudzums;
-		this.piegade = piegade;
-		this.cena = cena;
+	String adrese; String telNr; String vards;
+	
+	public PasutitajaInfo(String vards, String telNr, String adrese){
+		this.vards = vards;
+		this.telNr = telNr;
+		this.adrese = adrese;
+		
 	}
+	
 	public String nolasitAtributus() {
-		return "Mērce: "+merce+"\nPiedevas: "+piedevas+"\nDzēriens: "+dzeriens+"\nLielums: "+lielums+" CM"+"\nDaudzums: "+daudzums+"\nPiegāde: "+piegade+" EUR"+"\nCena: "+cena+" EUR";
+		return "Klienta vārds: "+vards+"\nKlienta telefona nr. : "+telNr+"\nKlienta adrese"+adrese;
 	}
 }

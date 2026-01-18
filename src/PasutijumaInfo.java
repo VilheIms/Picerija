@@ -20,9 +20,8 @@ static String failaNosaukums = "picinfo.txt";
 		FileWriter fw = new FileWriter(failaNosaukums, true);
 		PrintWriter pw = new PrintWriter(fw);
 		pw.println(pica.nolasitAtributus());
-		pw.println("++++++++++++++++++++++++++\n");
+		pw.println("__________________________________\n");
 		pw.close();
-		JOptionPane.showMessageDialog(null, "Ierakstīts failā: "+failaNosaukums);
 		}
 		}catch(IOException e){
 		JOptionPane.showMessageDialog(null, "Kļūda ierakstot failā!", "kļūda", JOptionPane.ERROR_MESSAGE);

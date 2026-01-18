@@ -46,7 +46,7 @@ public class Picerija {
 		PasutitajaInfo klients = null;
 		String[] darbibas = {"Sākt darbu", "Beigt programmu"};
 		String[] darbstacija = {"Pieņemt pasūtījumu", "Apskatīt pasūtījumu vēsturi", "Beigt programmu"};
-		String[] informacija = {"Ievadīt picas", "Ievadīt pasūtītāju informāciju", "Saglabāt failā", "Beigt programmu"};
+		String[] informacija = {"Ievadīt picas", "Ievadīt pasūtītāju informāciju", "Saglabāt failā", "Doties atpakaļ"};
 		String[] dzerieni = {"Coca-Cola", "Sprite", "Dr. Pepper", "Fanta", "Pepsi", "Nav"};
 		String[] merces = {"BBQ", "Tomātu", "Čillī", "Sinepes"};
 		String[] piedevasPicai = {"Šampinjoni", "Dārzeņi", "Gaļa", "Pepperoni","Siers"};
@@ -106,6 +106,21 @@ public class Picerija {
 								break;
 								
 							case "Ievadīt pasūtītāju informāciju":
+								
+								String vards = virknesParbaude("Ievadi klienta vārdu", "Gustavs");
+								
+								String telNr = "";
+										do {
+											telNr = JOptionPane.showInputDialog("Ievadi telefona numuru", "+371");
+										}while(telNr == null || !Pattern.matches("^[+371]+[2-9]{1}[0-9]{7}$", telNr));
+								String adrese = "";
+								if(pica.piegade == 0) {
+									adrese = "";
+								}else {
+									adrese = JOptionPane.showInputDialog(null, "Ievadi klienta adresi:", "Adreses ievade", JOptionPane.PLAIN_MESSAGE);
+								}
+								
+								klients = new PasutitajaInfo(vards, telNr, adrese);
 								
 								break;
 					

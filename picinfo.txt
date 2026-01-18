@@ -1,0 +1,14 @@
+Mērce: BBQ
+Piedevas: Šampinjoni
+Dzēriens: Coca-Cola
+Lielums: 15.0 CM
+Daudzums: 1
+Piegāde: 8 EUR
+Cena: 20.0
+__________________________________
+
+Klienta vārds: Gustavs
+Klienta telefona nr. : +37120215099
+Klienta adreseAntas klints iela 2
+++++++++++++++++++++++++++
+

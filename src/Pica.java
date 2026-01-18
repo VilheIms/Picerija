@@ -15,6 +15,6 @@ public class Pica {
 	}
 	
 	public String nolasitAtributus() {
-		return "Mērce: "+merce+"\nPiedevas: "+piedevas+"\nDzēriens: "+dzeriens+"\nLielums: "+lielums+" CM"+"\nDaudzums: "+daudzums+"\nPiegāde: "+piegade+" EUR"+"\nCena: "+cena+" EUR";
+		return "Mērce: "+merce+"\nPiedevas: "+piedevas+"\nDzēriens: "+dzeriens+"\nLielums: "+lielums+" CM"+"\nDaudzums: "+daudzums+"\nPiegāde: "+piegade+" EUR"+"\nCena: "+cena;
 	}
 }
