@@ -62,55 +62,67 @@ public class Picerija {
 			switch(izvele) {
 			
 			case "Sākt darbu":
-				
+				do {
 				darbizvele = (String)JOptionPane.showInputDialog(null,"Izvēlies picērijas opciju", "Darbstacija",JOptionPane.QUESTION_MESSAGE, null, darbstacija, darbstacija[0]);
 				if(darbizvele == null) 
 					darbizvele = "Beigt programmu";
-				do {
+				
 					switch(darbizvele) {
 						case "Pieņemt pasūtījumu":
-					
+					do {
 							infoizvele = (String)JOptionPane.showInputDialog(null, "Izvēlies informācijas ievadi!", "Informācijas ievade", JOptionPane.QUESTION_MESSAGE, null, informacija, informacija[0]);
 							if(infoizvele == null) 
 								infoizvele = "Beigt programmu";
-							do {
+							
 							switch(infoizvele) {
 							
 							case "Ievadīt picas":
-					
+								
 								String merce = (String)JOptionPane.showInputDialog(null,"Izvēlies mērci", "Darbstacija",JOptionPane.QUESTION_MESSAGE, null, merces, merces[0]);
+								if(merce == null)
+									break;
 								String piedevas = (String)JOptionPane.showInputDialog(null,"Izvēlies piedevas", "Darbstacija",JOptionPane.QUESTION_MESSAGE, null, piedevasPicai, piedevasPicai[0]);
+								if(piedevas == null)
+									break;
 								String dzeriens = (String)JOptionPane.showInputDialog(null,"Izvēlies dzērienu", "Darbstacija",JOptionPane.QUESTION_MESSAGE, null, dzerieni, dzerieni[0]);
+								if(dzeriens == null)
+									break;
 								double lielums = skaitlaParbaude("Cik liela būs pica (15 - 60 CM) ?", 15, 60);
+								if(lielums == -1)
+									break;
 								int daudzums = skaitlaParbaude("Cik daudz picas?", 1, 20);
+								if(daudzums == -1)
+									break;
 								int piegade = JOptionPane.showConfirmDialog(null,"Vai būs piegāde?", "Darbstacija",JOptionPane.YES_NO_OPTION);
 								
 								if(piegade == 0)
 									piegade = 8;
 								else
 									piegade = 0;
-									
+								
 								double cena = (merce.length()+piedevas.length()+dzeriens.length())/3+(lielums/3)*daudzums+piegade;
 								pica = new Pica(merce, piedevas, dzeriens, lielums, daudzums, piegade, cena);
 								
 								break;
-					
+								
 							case "Ievadīt pasūtītāju informāciju":
-					
+								
 								break;
 					
 							case "Saglabāt failā":
 								if(pica == null || klients == null){
 									JOptionPane.showMessageDialog(null, "Vajag gan picu, gan klientu!", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
+									break;
 								}else{
 									PasutijumaInfo.saglabatPicu(pica);
 									PasutijumaInfo.saglabatKlientu(klients);
+									break;
 								}
-								break;
 								
 							}
 							break;
 				}while(!(infoizvele == "Beigt programmu"));
+							
 				break;
 				
 				case "Apskatīt pasūtījumu vēsturi":
@@ -118,8 +130,8 @@ public class Picerija {
 					PasutijumaInfo.nolasit();
 					
 					break;
-					
-					
+					}
+					}while(!(darbizvele == "Beigt programmu"));
 					
 			case "Beigt programmu":
 				
@@ -129,8 +141,7 @@ public class Picerija {
 				
 			}
 			break;
-		}while(!(darbizvele == "Beigt programmu"));
-}break;
+		
 		}while(!(izvele == "Beigt programmu"));	
 	}
 }
