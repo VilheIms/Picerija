@@ -106,13 +106,19 @@ public class Picerija {
 								break;
 								
 							case "Ievadīt pasūtītāju informāciju":
-								
+								if(pica == null) {
+								JOptionPane.showMessageDialog(null, "Ievadi klienta pasūtījumu, pirms tu prasi privātu informāciju!", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
+								break;
+								}
 								String vards = virknesParbaude("Ievadi klienta vārdu", "Gustavs");
-								
+								if(vards == null)
+									break;
 								String telNr = "";
+								
 										do {
 											telNr = JOptionPane.showInputDialog("Ievadi telefona numuru", "+371");
 										}while(telNr == null || !Pattern.matches("^[+371]+[2-9]{1}[0-9]{7}$", telNr));
+										
 								String adrese = "";
 								if(pica.piegade == 0) {
 									adrese = "";

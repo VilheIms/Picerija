@@ -12,3 +12,17 @@ Klienta telefona nr. : +37120215099
 Klienta adreseAntas klints iela 2
 ++++++++++++++++++++++++++
 
+Mērce: Tomātu
+Piedevas: Gaļa
+Dzēriens: Dr. Pepper
+Lielums: 60.0 CM
+Daudzums: 3
+Piegāde: 8 EUR
+Cena: 74.0
+__________________________________
+
+Klienta vārds: Intars
+Klienta telefona nr. : +37120215099
+Klienta adrese: Čuda iela 3
+++++++++++++++++++++++++++
+

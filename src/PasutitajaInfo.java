@@ -10,6 +10,6 @@ public class PasutitajaInfo {
 	}
 	
 	public String nolasitAtributus() {
-		return "Klienta vārds: "+vards+"\nKlienta telefona nr. : "+telNr+"\nKlienta adrese"+adrese;
+		return "Klienta vārds: "+vards+"\nKlienta telefona nr. : "+telNr+"\nKlienta adrese: "+adrese;
 	}
 }
