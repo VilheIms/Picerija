@@ -2,7 +2,9 @@ import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 public class Picerija {
+	
 	public static String ievade;
+	
 	public static String virknesParbaude(String zinojums, String noklusejums) {
 		String virkne;
 		do {
@@ -45,7 +47,10 @@ public class Picerija {
 		String[] darbibas = {"Sākt darbu", "Beigt programmu"};
 		String[] darbstacija = {"Pieņemt pasūtījumu", "Apskatīt pasūtījumu vēsturi", "Beigt programmu"};
 		String[] informacija = {"Ievadīt picas", "Ievadīt pasūtītāju informāciju", "Saglabāt failā", "Beigt programmu"};
-		
+		String[] dzerieni = {"Coca-Cola", "Sprite", "Dr. Pepper", "Fanta", "Pepsi", "Nav"};
+		String[] merces = {"BBQ", "Tomātu", "Čillī", "Sinepes"};
+		String[] piedevasPicai = {"Šampinjoni", "Dārzeņi", "Gaļa", "Pepperoni","Siers"};
+		String[] piegadePircejam = {"Ir", "Nav"};
 		
 		
 		
@@ -70,8 +75,14 @@ public class Picerija {
 				
 							case "Ievadīt picas":
 					
-								String merce = virknesParbaude("Kādu mērci vēlas?", "Tomātu");
-								pica = new Pica(merce);
+								String merce = (String)JOptionPane.showInputDialog(null,"Izvēlies mērci", "Darbstacija",JOptionPane.QUESTION_MESSAGE, null, merces, merces[0]);
+								String piedevas = (String)JOptionPane.showInputDialog(null,"Izvēlies piedevas", "Darbstacija",JOptionPane.QUESTION_MESSAGE, null, piedevasPicai, piedevasPicai[0]);
+								String dzeriens = (String)JOptionPane.showInputDialog(null,"Izvēlies dzērienu", "Darbstacija",JOptionPane.QUESTION_MESSAGE, null, dzerieni, dzerieni[0]);
+								double lielums = skaitlaParbaude("Cik liela būs pica (CM) ?", 15, 60);
+								int daudzums = skaitlaParbaude("Cik daudz picas?", 1, 20);
+								String piegade = (String)JOptionPane.showInputDialog(null,"Vai būs piegāde?", "Darbstacija",JOptionPane.QUESTION_MESSAGE, null, piegadePircejam, piegadePircejam[0]);
+								double cena = 12;
+								pica = new Pica(merce, piedevas, dzeriens, lielums, daudzums, piegade, cena);
 								break;
 					
 							case "Ievadīt pasūtītāju informāciju":
@@ -79,7 +90,7 @@ public class Picerija {
 								break;
 					
 							case "Saglabāt failā":
-					
+								PasutijumaInfo.saglabat(pica);
 								break;
 							}
 				}while(!(infoizvele == "Beigt programmu"));
@@ -89,6 +100,7 @@ public class Picerija {
 					PasutijumaInfo.nolasit();
 					
 					break;
+					
 					}
 			case "Beigt programmu":
 				
