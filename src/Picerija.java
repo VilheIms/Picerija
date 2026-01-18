@@ -1,26 +1,79 @@
-import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.regex.Pattern;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 public class Picerija {
+	public static String ievade;
+	public static String virknesParbaude(String zinojums, String noklusejums) {
+		String virkne;
+		do {
+			virkne = JOptionPane.showInputDialog(zinojums, noklusejums);
+			if(virkne == null) return null;
+			
+			virkne = virkne.trim();
+		}while(!Pattern.matches("^[\\p{L} .]+$", virkne));
+		return virkne;
+	}
 
+	public static int skaitlaParbaude(String zinojums, int min, int max) {
+		
+		int skaitlis;
+		
+		while(true) {
+			ievade = JOptionPane.showInputDialog(null, zinojums, "Datu ievade", JOptionPane.INFORMATION_MESSAGE);
+			
+			if(ievade == null) return -1;
+			
+			try {
+				skaitlis = Integer.parseInt(ievade);
+				if(skaitlis<min || skaitlis>max) {
+					JOptionPane.showMessageDialog(null, "Norādīs nederīgs intervāls", "Nepareizi dati", JOptionPane.WARNING_MESSAGE);
+					continue;
+				}
+				
+				return skaitlis;
+			}catch(NumberFormatException e) {
+				JOptionPane.showMessageDialog(null, "Netika ievadīts vesels skaitlis", "Nepareizi dati", JOptionPane.ERROR_MESSAGE);
+			}
+		}
+	}
 	
 	public static void main(String[] args) {
 		
-		JFrameClass frame2 = new JFrameClass();
+		String izvele;
+		Pica pica = null;
+		String[] darbibas = {"Sākt darbu", "Beigt programmu"};
+		String[] darbstacija = {"Pieņemt pasūtījumu", "Ievadīt pasūtītāju informāciju", "Saglabāt failā", "Apskatīt failu", "Apturēt"};
+		
+		
+		
+		
+		
+		do {
+			izvele = (String)JOptionPane.showInputDialog(null,"Izvēlies darbību", "Darbību izvēle",JOptionPane.QUESTION_MESSAGE, null, darbibas, darbibas[0]);
+			
+			if(izvele == null) 
+				izvele = "Apturet";
+			switch(izvele) {
+			case "Sākt darbu":
+				izvele = (String)JOptionPane.showInputDialog(null,"Izvēlies picērijas opciju", "Darbstacija",JOptionPane.QUESTION_MESSAGE, null, darbstacija, darbstacija[0]);
+				switch(izvele) {
+				case "Pieņemt pasūtījumu":
+					
+					break;
+				}
+				
+				break;
+			case "Apskatīt pasūtījumu vēsturi":
+				PasutijumaInfo.nolasit();
+				break;
+				
+			case "Beigt programmu":
+				
+				JOptionPane.showMessageDialog(null, "Programma beigusies!");
+				
+				break;
+			}
+		}while(!(izvele == "Beigt programmu"));
 		
 		
 		
