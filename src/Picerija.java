@@ -50,7 +50,6 @@ public class Picerija {
 		String[] dzerieni = {"Coca-Cola", "Sprite", "Dr. Pepper", "Fanta", "Pepsi", "Nav"};
 		String[] merces = {"BBQ", "Tomātu", "Čillī", "Sinepes"};
 		String[] piedevasPicai = {"Šampinjoni", "Dārzeņi", "Gaļa", "Pepperoni","Siers"};
-		String[] piegadePircejam = {"Ir", "Nav"};
 		
 		
 		
@@ -65,24 +64,34 @@ public class Picerija {
 			case "Sākt darbu":
 				
 				darbizvele = (String)JOptionPane.showInputDialog(null,"Izvēlies picērijas opciju", "Darbstacija",JOptionPane.QUESTION_MESSAGE, null, darbstacija, darbstacija[0]);
-				
+				if(darbizvele == null) 
+					System.out.println("Šeit!");
 					switch(darbizvele) {
 						case "Pieņemt pasūtījumu":
 					
 							infoizvele = (String)JOptionPane.showInputDialog(null, "Izvēlies informācijas ievadi!", "Informācijas ievade", JOptionPane.QUESTION_MESSAGE, null, informacija, informacija[0]);
-				do {
+							if(infoizvele == null) 
+								System.out.println("Tetā1!");
+							do {
 							switch(infoizvele) {
-				
+							
 							case "Ievadīt picas":
 					
 								String merce = (String)JOptionPane.showInputDialog(null,"Izvēlies mērci", "Darbstacija",JOptionPane.QUESTION_MESSAGE, null, merces, merces[0]);
 								String piedevas = (String)JOptionPane.showInputDialog(null,"Izvēlies piedevas", "Darbstacija",JOptionPane.QUESTION_MESSAGE, null, piedevasPicai, piedevasPicai[0]);
 								String dzeriens = (String)JOptionPane.showInputDialog(null,"Izvēlies dzērienu", "Darbstacija",JOptionPane.QUESTION_MESSAGE, null, dzerieni, dzerieni[0]);
-								double lielums = skaitlaParbaude("Cik liela būs pica (CM) ?", 15, 60);
+								double lielums = skaitlaParbaude("Cik liela būs pica (15 - 60 CM) ?", 15, 60);
 								int daudzums = skaitlaParbaude("Cik daudz picas?", 1, 20);
-								String piegade = (String)JOptionPane.showInputDialog(null,"Vai būs piegāde?", "Darbstacija",JOptionPane.QUESTION_MESSAGE, null, piegadePircejam, piegadePircejam[0]);
-								double cena = 12;
+								int piegade = JOptionPane.showConfirmDialog(null,"Vai būs piegāde?", "Darbstacija",JOptionPane.YES_NO_OPTION);
+								
+								if(piegade == 0)
+									piegade = 8;
+								else
+									piegade = 0;
+									
+								double cena = (merce.length()+piedevas.length()+dzeriens.length())/3+(lielums/3)*daudzums+piegade;
 								pica = new Pica(merce, piedevas, dzeriens, lielums, daudzums, piegade, cena);
+								
 								break;
 					
 							case "Ievadīt pasūtītāju informāciju":
@@ -92,9 +101,12 @@ public class Picerija {
 							case "Saglabāt failā":
 								PasutijumaInfo.saglabat(pica);
 								break;
+								
 							}
+							break;
 				}while(!(infoizvele == "Beigt programmu"));
-					break;
+				break;
+				
 				case "Apskatīt pasūtījumu vēsturi":
 				
 					PasutijumaInfo.nolasit();
@@ -102,12 +114,15 @@ public class Picerija {
 					break;
 					
 					}
+					
 			case "Beigt programmu":
 				
 				JOptionPane.showMessageDialog(null, "Programma beigusies!");
 				
 				break;
+				
 			}
+			break;
 		}while(!(izvele == "Beigt programmu"));
     }	
 }

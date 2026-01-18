@@ -2,9 +2,9 @@
 
 public class Pica {
 
-	String merce; String piedevas;String dzeriens;double lielums;int daudzums; String piegade;double cena;
+	String merce; String piedevas;String dzeriens;double lielums;int daudzums; int piegade;double cena;
 	
-	public Pica(String merce, String piedevas, String dzeriens, double lielums, int daudzums, String piegade, double cena){
+	public Pica(String merce, String piedevas, String dzeriens, double lielums, int daudzums, int piegade, double cena){
 		this.merce = merce;
 		this.piedevas = piedevas;
 		this.dzeriens = dzeriens;
@@ -15,6 +15,6 @@ public class Pica {
 	}
 	
 	public String nolasitAtributus() {
-		return merce+" pica no novickas";
+		return "Mērce: "+merce+"\nPiedevas: "+piedevas+"\nDzēriens: "+dzeriens+"\nLielums: "+lielums+" CM"+"\nDaudzums: "+daudzums+"\nPiegāde: "+piegade+" EUR"+"\nCena: "+cena+" EUR";
 	}
 }
