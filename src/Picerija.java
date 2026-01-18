@@ -20,11 +20,6 @@ public class Picerija {
 	
 	public static void main(String[] args) {
 		
-		String izvele;
-		
-		String[] darbibas = {"Ievadīt picas", "Ievadīt pasūtītāju informāciju", "Saglabāt failā", "Apskatīt failu", "Apturēt"};
-		
-		
 		JFrameClass frame2 = new JFrameClass();
 		
 		

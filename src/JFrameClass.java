@@ -17,6 +17,8 @@ public class JFrameClass extends JFrame {
 	private static final long serialVersionUID = -7754388046793851758L;
 	private JButton button, button2, button3;
 	Pica pica = null;
+	JPanel panel = new JPanel();
+	JPanel panel2 = new JPanel();
 	JFrameClass(){
 		start();
 	}
@@ -43,7 +45,6 @@ public class JFrameClass extends JFrame {
 		setResizable(false);
 		
 		
-		JPanel panel = new JPanel();
 		panel.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 5));
 		
 		panel.setBackground(Color.darkGray);
@@ -64,6 +65,19 @@ public class JFrameClass extends JFrame {
 		setVisible(true);
 	}
 
+	public void WorkPanel() {
+		setTitle("Working station");
+		setLayout(new BorderLayout());
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setSize(500, 400);
+		setLocationRelativeTo(null);
+		setResizable(false);
+		
+		
+		panel2.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 5));
+	}
+	
+	
 	private JButton createButton() {
 		
 		JButton button = new JButton("Sākt darbu");
@@ -75,14 +89,7 @@ public class JFrameClass extends JFrame {
 		button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Darbs sācies");
-				String merce = virknesParbaude("Ievadi mērci", "Tomātu");
-				if(merce == null) {
-					JOptionPane.showMessageDialog(null, "Atcelts!");
-				}else {
-					pica = new Pica(merce);
-				}
-					
+				
 			}
 			
 		});
@@ -90,6 +97,9 @@ public class JFrameClass extends JFrame {
 		
 		return button;
 	}
+	
+	
+	
 	
 private JButton createButton2() {
 		
