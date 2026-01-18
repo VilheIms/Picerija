@@ -42,8 +42,8 @@ public class Picerija {
 		String izvele;
 		Pica pica = null;
 		String[] darbibas = {"Sākt darbu", "Beigt programmu"};
-		String[] darbstacija = {"Pieņemt pasūtījumu", "Ievadīt pasūtītāju informāciju", "Saglabāt failā", "Apskatīt failu", "Apturēt"};
-		
+		String[] darbstacija = {"Pieņemt pasūtījumu", "Apskatīt pasūtījumu vēsturi", "Beigt programmu"};
+		String[] informacija = {"Ievadīt picas", "Ievadīt pasūtītāju informāciju", "Saglabāt failā", "Beigt programmu"};
 		
 		
 		
@@ -53,18 +53,36 @@ public class Picerija {
 			
 			if(izvele == null) 
 				izvele = "Apturet";
+			
 			switch(izvele) {
+			
 			case "Sākt darbu":
+				
 				izvele = (String)JOptionPane.showInputDialog(null,"Izvēlies picērijas opciju", "Darbstacija",JOptionPane.QUESTION_MESSAGE, null, darbstacija, darbstacija[0]);
+				
 				switch(izvele) {
 				case "Pieņemt pasūtījumu":
+					
+					izvele = (String)JOptionPane.showInputDialog(null, "Izvēlies informācijas ievadi!", "Informācijas ievade", JOptionPane.QUESTION_MESSAGE, null, informacija, informacija[0]);
+				
+				case "Ievadīt picas":
+					
+					break;
+					
+				case "Ievadīt pasūtītāju informāciju":
+					
+					break;
+					
+				case "Saglabāt failā":
 					
 					break;
 				}
 				
 				break;
 			case "Apskatīt pasūtījumu vēsturi":
+				
 				PasutijumaInfo.nolasit();
+				
 				break;
 				
 			case "Beigt programmu":
