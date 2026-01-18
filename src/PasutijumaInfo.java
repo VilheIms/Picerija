@@ -14,19 +14,21 @@ static String failaNosaukums = "picinfo.txt";
 	
 	public static void saglabat(Pica pica) {
 	try {	
-		
+		if(pica == null) {
+			JOptionPane.showMessageDialog(null, "Nav neviena pica izveidota!");
+		}else{
 		FileWriter fw = new FileWriter(failaNosaukums, true);
 		PrintWriter pw = new PrintWriter(fw);
 		pw.println(pica.nolasitAtributus());
 		pw.println("++++++++++++++++++++++++++\n");
 		pw.close();
 		JOptionPane.showMessageDialog(null, "Ierakstīts failā: "+failaNosaukums);
-		
-	}catch(IOException e){
+		}
+		}catch(IOException e){
 		JOptionPane.showMessageDialog(null, "Kļūda ierakstot failā!", "kļūda", JOptionPane.ERROR_MESSAGE);
+		
 	}
 	}
-	
 	public static void nolasit() {
 		String teksts, str = "";
 		try {

@@ -75,9 +75,14 @@ public class JFrameClass extends JFrame {
 		button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Pizza party");
+				JOptionPane.showMessageDialog(null, "Darbs sācies");
 				String merce = virknesParbaude("Ievadi mērci", "Tomātu");
-				pica = new Pica(merce);
+				if(merce == null) {
+					JOptionPane.showMessageDialog(null, "Atcelts!");
+				}else {
+					pica = new Pica(merce);
+				}
+					
 			}
 			
 		});
