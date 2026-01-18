@@ -65,13 +65,14 @@ public class Picerija {
 				
 				darbizvele = (String)JOptionPane.showInputDialog(null,"Izvēlies picērijas opciju", "Darbstacija",JOptionPane.QUESTION_MESSAGE, null, darbstacija, darbstacija[0]);
 				if(darbizvele == null) 
-					System.out.println("Šeit!");
+					darbizvele = "Beigt programmu";
+				do {
 					switch(darbizvele) {
 						case "Pieņemt pasūtījumu":
 					
 							infoizvele = (String)JOptionPane.showInputDialog(null, "Izvēlies informācijas ievadi!", "Informācijas ievade", JOptionPane.QUESTION_MESSAGE, null, informacija, informacija[0]);
 							if(infoizvele == null) 
-								System.out.println("Tetā1!");
+								infoizvele = "Beigt programmu";
 							do {
 							switch(infoizvele) {
 							
@@ -99,7 +100,12 @@ public class Picerija {
 								break;
 					
 							case "Saglabāt failā":
-								PasutijumaInfo.saglabat(pica);
+								if(pica == null || klients == null){
+									JOptionPane.showMessageDialog(null, "Vajag gan picu, gan klientu!", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
+								}else{
+									PasutijumaInfo.saglabatPicu(pica);
+									PasutijumaInfo.saglabatKlientu(klients);
+								}
 								break;
 								
 							}
@@ -113,7 +119,7 @@ public class Picerija {
 					
 					break;
 					
-					}
+					
 					
 			case "Beigt programmu":
 				
@@ -123,7 +129,9 @@ public class Picerija {
 				
 			}
 			break;
-		}while(!(izvele == "Beigt programmu"));
-    }	
+		}while(!(darbizvele == "Beigt programmu"));
+}break;
+		}while(!(izvele == "Beigt programmu"));	
+	}
 }
 
