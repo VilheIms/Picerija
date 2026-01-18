@@ -39,8 +39,9 @@ public class Picerija {
 	
 	public static void main(String[] args) {
 		
-		String izvele;
+		String izvele, darbizvele, infoizvele = null;
 		Pica pica = null;
+		PasutitajaInfo klients = null;
 		String[] darbibas = {"Sākt darbu", "Beigt programmu"};
 		String[] darbstacija = {"Pieņemt pasūtījumu", "Apskatīt pasūtījumu vēsturi", "Beigt programmu"};
 		String[] informacija = {"Ievadīt picas", "Ievadīt pasūtītāju informāciju", "Saglabāt failā", "Beigt programmu"};
@@ -52,39 +53,43 @@ public class Picerija {
 			izvele = (String)JOptionPane.showInputDialog(null,"Izvēlies darbību", "Darbību izvēle",JOptionPane.QUESTION_MESSAGE, null, darbibas, darbibas[0]);
 			
 			if(izvele == null) 
-				izvele = "Apturet";
+				izvele = "Beigt programmu";
 			
 			switch(izvele) {
 			
 			case "Sākt darbu":
 				
-				izvele = (String)JOptionPane.showInputDialog(null,"Izvēlies picērijas opciju", "Darbstacija",JOptionPane.QUESTION_MESSAGE, null, darbstacija, darbstacija[0]);
+				darbizvele = (String)JOptionPane.showInputDialog(null,"Izvēlies picērijas opciju", "Darbstacija",JOptionPane.QUESTION_MESSAGE, null, darbstacija, darbstacija[0]);
 				
-				switch(izvele) {
-				case "Pieņemt pasūtījumu":
+					switch(darbizvele) {
+						case "Pieņemt pasūtījumu":
 					
-					izvele = (String)JOptionPane.showInputDialog(null, "Izvēlies informācijas ievadi!", "Informācijas ievade", JOptionPane.QUESTION_MESSAGE, null, informacija, informacija[0]);
+							infoizvele = (String)JOptionPane.showInputDialog(null, "Izvēlies informācijas ievadi!", "Informācijas ievade", JOptionPane.QUESTION_MESSAGE, null, informacija, informacija[0]);
+				do {
+							switch(infoizvele) {
 				
-				case "Ievadīt picas":
+							case "Ievadīt picas":
+					
+								String merce = virknesParbaude("Kādu mērci vēlas?", "Tomātu");
+								pica = new Pica(merce);
+								break;
+					
+							case "Ievadīt pasūtītāju informāciju":
+					
+								break;
+					
+							case "Saglabāt failā":
+					
+								break;
+							}
+				}while(!(infoizvele == "Beigt programmu"));
+					break;
+				case "Apskatīt pasūtījumu vēsturi":
+				
+					PasutijumaInfo.nolasit();
 					
 					break;
-					
-				case "Ievadīt pasūtītāju informāciju":
-					
-					break;
-					
-				case "Saglabāt failā":
-					
-					break;
-				}
-				
-				break;
-			case "Apskatīt pasūtījumu vēsturi":
-				
-				PasutijumaInfo.nolasit();
-				
-				break;
-				
+					}
 			case "Beigt programmu":
 				
 				JOptionPane.showMessageDialog(null, "Programma beigusies!");
@@ -92,10 +97,6 @@ public class Picerija {
 				break;
 			}
 		}while(!(izvele == "Beigt programmu"));
-		
-		
-		
-    }
-			
+    }	
 }
 
