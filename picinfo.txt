@@ -26,3 +26,17 @@ Klienta telefona nr. : +37120215099
 Klienta adrese: Čuda iela 3
 ++++++++++++++++++++++++++
 
+Mērce: Čillī
+Piedevas: Dārzeņi
+Dzēriens: Sprite
+Lielums: 18.0 CM
+Daudzums: 1
+Piegāde: 0 EUR
+Cena: 12.0
+__________________________________
+
+Klienta vārds: Valters
+Klienta telefona nr. : +37120215099
+Klienta adrese: 
+++++++++++++++++++++++++++
+
